@@ -1,67 +1,3 @@
-/*
-let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
-const contactList = document.getElementById('contact-list');
-function renderContacts() {
-    contactList.innerHTML = '';
-    contacts.forEach((contact, index) => {
-        const contactDiv = document.createElement('div');
-        contactDiv.innerHTML = `
-            <p id="contact-name"><strong>${contact.lastname} ${contact.firstname}</strong>   <span onclick="toggleDetails(this)">▶</span></p>
-            <div class="contact-details" style="display: none;">
-            <p>Otthoni telefon: ${contact.homephone}</p>
-            <p>Mobiltelefon: ${contact.mobilephone}</p>
-            <p>E-mail: ${contact.email}</p>
-            <p>Cím: ${contact.address}</p>
-            <p>Születési dátum: ${contact.birthday}</p>
-            <p>Megjegyzés: ${contact.notes}</p>
-            <h3>Csoportok:</h3>
-            `
-            contact.groups.forEach(group => {
-                contactDiv.innerHTML += `
-                <p> Csoport neve: ${group} <span onclick="toggleDetails(this)">▼</span></p>
-                <div class="group-details" style="display: none;">
-                <p> Csoport leírása: ${group} </p>
-                </div>
-                `;
-            });
-            contactDiv.innerHTML += `
-            <button onclick="editContact(${index})">Szerkesztés</button>
-            <button onclick="deleteContact(${index})">Törlés</button>
-            </div>
-            `;
-            
-            contactList.appendChild(contactDiv);
-            const groupDetails = contactDiv.querySelectorAll('.group-details');
-            const contactDetails = contactDiv.querySelectorAll('.contact-details');
-        });
-    }
-
-function toggleDetails(element) {
-    console.log(element);
-    const foldMenu = element.parentElement.nextElementSibling;
-    console.log(foldMenu);
-    if (foldMenu.style.display === 'none') {
-        foldMenu.style.display = 'block';
-        element.textContent = '▼';
-    }
-    else {
-        foldMenu.style.display = 'none';
-        element.textContent = '▶';
-    }
-}
-
-function editContact(index) {
-    // Implement edit functionality here
-    alert(`Edit contact at index: ${index}`);
-}
-
-function deleteContact(index) {
-    contacts.splice(index, 1);
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-    renderContacts();
-}*/
-
-
 let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
 let groups = JSON.parse(localStorage.getItem('groups')) || [];
 
@@ -84,8 +20,6 @@ function toggleDetails(el) {
   target.style.display = target.style.display === 'none' ? 'block' : 'none';
   el.textContent = target.style.display === 'none' ? '▶' : '▼';
 }
-
-// ---------- CONTACTS ----------
 
 document.getElementById('add-contact-form').onsubmit = e => {
   e.preventDefault();
@@ -142,8 +76,6 @@ function assignGroup(i) {
   save();
   renderContacts();
 }
-
-// ---------- GROUPS ----------
 
 document.getElementById('add-group-form').onsubmit = e => {
   e.preventDefault();
