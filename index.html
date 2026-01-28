@@ -1,13 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <title>Névjegyzék</title>
 </head>
 <body>
-    <div id="contact-list">
+    
+    
+    <div class="formsBlock">
+        <p><strong>Névjegy hozzáadása</strong> <span onclick="toggleDetails(this)">▶</span></p>
+        <form id="add-contact-form" style="display:none">
+            <input name="firstname" placeholder="Keresztnév" required />
+            <input name="lastname" placeholder="Vezetéknév" required />
+            <input name="homephone" placeholder="Otthoni telefon" required />
+            <input name="mobilephone" placeholder="Mobiltelefon" required />
+            <input name="email" placeholder="E-mail" required />
+            <input name="address" placeholder="Cím" required />
+            <input type="date" name="birthday" placeholder="Születési dátum" required/>
+            <textarea name="notes" placeholder="Megjegyzés"></textarea>
+            <button type="submit">Mentés</button>
+        </form>
         
+        <p><strong>Csoport létrehozása</strong> <span onclick="toggleDetails(this)">▶</span></p>
+        <form id="add-group-form" style="display:none">
+            <input name="name" placeholder="Csoport neve" required />
+            <input name="description" placeholder="Leírás" />
+            <button type="submit">Mentés</button>
+        </form>
     </div>
+    
+    <header>
+        <button onclick="showView('contacts')">Névjegyek</button>
+        <button onclick="showView('groups')">Csoportok</button>
+    </header>
+<div id="contactlist"></div>
+<div id="grouplist" style="display:none"></div>
+
 </body>
 </html>

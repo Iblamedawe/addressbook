@@ -1,0 +1,8 @@
+.formsBlock {
+    display: flex;
+    flex-direction: column;
+}
+span:hover {
+    cursor: pointer;
+    color: blue;
+}
